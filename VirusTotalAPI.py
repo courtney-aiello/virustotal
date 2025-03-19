@@ -31,20 +31,20 @@ def check_reputation(ip):
     else:
         return {"error": f"Failed to fetch data for {ip}"}
     
-    # Run checks
-    results = []
-    for ip in IP_LIST:
-    print(f"Checking IP: {ip}...")
-    result = check_reputation(ip)
-    result["ip"] = ip
-    results.append(result)
-    time.sleep(15)
+# Run checks
+results = []
+for ip in IP_LIST:
+print(f"Checking IP: {ip}...")
+result = check_reputation(ip)
+result["ip"] = ip
+results.append(result)
+time.sleep(15)
 
-    # Convert results to a dataframe
-    df_results = pd.DataFrame(results)
+# Convert results to a dataframe
+df_results = pd.DataFrame(results)
 
-    # Save results to a csv
-    output_file = "ip_reputation_results.csv"
-    df_results.to_csv(output_file, index=False)
-    print(f"IP reputation check completed. results saved in '{output_file}'")
+# Save results to a csv
+output_file = "ip_reputation_results.csv"
+df_results.to_csv(output_file, index=False)
+print(f"IP reputation check completed. results saved in '{output_file}'")
     
